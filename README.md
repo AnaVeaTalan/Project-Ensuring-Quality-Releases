@@ -45,7 +45,7 @@ After that, you just have to run the following code:
 ```
 packer build ./packer-image.json
 ```
-![Alt text](<65D7 (4).png>)
+![Alt text](<packer_image.png>)
 
 ## Configure the storage account and state backend 
 
@@ -125,10 +125,19 @@ variables:
 
 - Stress test
 ![Alt text](stress_test.png)
+![Alt text](jmeter_stress_html.png)
 - Endurance test
 ![Alt text](endurance_test.png)
+![Alt text](jmeter_endurance_hrml.png)
 #### Functional UI testing selenium
 ![Alt text](selenium_test.png)
+
+The pipeline execution should look like this
+
+![Alt text](pipeline_successful-1.png)
+
+#### Querying custom logs
+![Alt text](querying_custom_logs.png)
 
 ## Suggestions and Corrections
 Feel free to submit PRs to this repo should you have any proposed changes. 

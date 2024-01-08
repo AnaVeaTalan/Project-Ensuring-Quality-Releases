@@ -27,7 +27,7 @@ def delete_cart(driver, n_items):
     syslog.syslog('{:d} items are deleted from the shopping cart successfully.'.format(n_items))
 
 if __name__ == "__main__":
-    N_ITEMS = 8
+    N_ITEMS = 6
     TEST_USERNAME = 'standard_user'
     TEST_PASSWORD = 'secret_sauce'
     driver = login(TEST_USERNAME, TEST_PASSWORD)
