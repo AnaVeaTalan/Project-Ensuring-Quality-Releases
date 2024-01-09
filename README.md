@@ -45,7 +45,7 @@ After that, you just have to run the following code:
 ```
 packer build ./packer-image.json
 ```
-![Alt text](<packer_image.png>)
+![Alt text](<screenshots/packer_image.png>)
 
 ## Configure the storage account and state backend 
 
@@ -110,47 +110,55 @@ variables:
 - Deploy the FakeRestAPI to the terraform deployed Azure App Service, the url will be
 ```http://[yourusername]-fakerestapi-appservice.azurewebsites.net/``` 
 
-![Alt text](deployed_fakerestapi.png)
+![Alt text](screenshots/deployed_fakerestapi.png)
 
 ### Automated testing
 
 #### Integration testing postman
 
 - Data validation test
-![Alt text](validation_test.png)
+![Alt text](screenshots/validation_test.png)
 - Regression test
-![Alt text](regression_test-1.png)
+![Alt text](screenshots/regression_test-1.png)
 
 #### Performance testing jmeter
 
 - Stress test
-![Alt text](stress_test.png)
-![Alt text](jmeter_stress_html.png)
+![Alt text](screenshots/stress_test.png)
+![Alt text](screenshots/jmeter_stress_html.png)
 - Endurance test
-![Alt text](endurance_test.png)
-![Alt text](jmeter_endurance_hrml.png)
+![Alt text](screenshots/endurance_test.png)
+![Alt text](screenshots/jmeter_endurance_hrml.png)
 #### Functional UI testing selenium
-![Alt text](selenium_test.png)
+![Alt text](screenshots/selenium_test.png)
 
 The pipeline execution should look like this
 
-![Alt text](pipeline_successful-1.png)
+![Alt text](screenshots/pipeline_successful-1.png)
 
 ## Monitoring and Observability
 
 - Go to the Azure Portal and create a new alert in the monitoring group, then execute the pipeline to trigger an alert
 
 Monitor chart
-![Alt text](monitor_chart.png)
+![Alt text](screenshots/monitor_chart.png)
 
 Trigger email alert
 
-![Alt text](trigger_email.png)
+![Alt text](screenshots/trigger_email.png)
 
-
+- Configure azure log analytics by downloading the selenium-test.log artifact from Azure Devops
+- Navigate to the Azure Portal and access Azure Log Analytics workspaces. Configure an agent on the virtual machine where the Selenium testing will take place. Ensure the VM is connected to Log Analytics and establish a Data Collection Rule to capture the necessary logs.
+- Navigate to the Logs section and initiate the creation of a custom log. Import the file named selenium-test.log. Choose "Timestamp" with the format YYYY-MM-DD HH:MM:SS as the record separator. Specify the path of the selenium-test.log from the VM where the task was executed as the collection path for logs (please note that there might be a delay before the VM can start collecting logs).
 
 #### Querying custom logs
-![Alt text](querying_custom_logs.png)
 
-## Suggestions and Corrections
-Feel free to submit PRs to this repo should you have any proposed changes. 
+- Then go to logs in general group of your log analytics, select your custom log and run it
+![Alt text](screenshots/querying_custom_logs.png)
+
+## Destroy the terraform resources
+
+```
+cd terraform
+terraform destroy
+```
