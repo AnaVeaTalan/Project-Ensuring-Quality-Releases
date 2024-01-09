@@ -136,6 +136,19 @@ The pipeline execution should look like this
 
 ![Alt text](pipeline_successful-1.png)
 
+## Monitoring and Observability
+
+- Go to the Azure Portal and create a new alert in the monitoring group, then execute the pipeline to trigger an alert
+
+Monitor chart
+![Alt text](monitor_chart.png)
+
+Trigger email alert
+
+![Alt text](trigger_email.png)
+
+
+
 #### Querying custom logs
 ![Alt text](querying_custom_logs.png)
 
